@@ -2,7 +2,7 @@ package com.android.com.kotlin.one
 
 fun greet(name: String = "Student"): String {
     //TODO("Write a function that greets someone by name.")
-    return "Bonjour, $name !"
+    return name
 }
 
 fun printInfo(name: String, age: Int = 18, city: String = "Paris") {
@@ -63,72 +63,110 @@ fun applyDiscount(price: Double, discount: Double = 0.1): Double {
 //    TODO(
 //        "Apply a discount (default 10%) to a price."
 //    )
-    return price * (1 - (discount / 100))
+    return price * (1 - discount)
 }
 
 
 fun capitalizeWords(sentence: String): String {
-    TODO(
-        "Capitalize the first letter of each word in a sentence."
-    )
+//    TODO(
+//        "Capitalize the first letter of each word in a sentence."
+//    )
+    return sentence.split(" ").joinToString(" ") { it.replaceFirstChar { c -> c.uppercase() } }
 }
 
 fun bmi(weight: Double, height: Double): Double {
-    TODO(
-        "Compute BMI using the formula: weight / height²"
-    )
+//    TODO(
+//        "Compute BMI using the formula: weight / height²"
+//    )
+    return weight / (height * height)
 }
 
 fun passwordStrength(password: String): Boolean {
-    TODO(
-        "Check password strength:\n" +
-                "- At least 8 characters\n" +
-                "- Contains uppercase letter\n" +
-                "- Contains lowercase letter\n" +
-                "- Contains a number"
-    )
+//    TODO(
+//        "Check password strength:\n" +
+//                "- At least 8 characters\n" +
+//                "- Contains uppercase letter\n" +
+//                "- Contains lowercase letter\n" +
+//                "- Contains a number"
+//    )
+    return password.length >= 8 &&
+            password.any { it.isUpperCase() } &&
+            password.any { it.isLowerCase() } &&
+            password.any { it.isDigit() }
 }
 
 fun filterEvenNumbers(numbers: List<Int>): List<Int> {
-    TODO(
-        "Return a list of even numbers from the input list."
-    )
+//    TODO(
+//        "Return a list of even numbers from the input list."
+//    )
+    return numbers.filter { it % 2 == 0 }
 }
 
 
 fun factorial(n: Int): Int {
-    TODO(
-        "Compute the factorial of a number n recursively."
-    )
+//    TODO(
+//        "Compute the factorial of a number n recursively."
+//    )
+    if (n <= 1) return 1
+    return n * factorial(n - 1)
 }
 
 fun fibonacci(n: Int): Int {
-    TODO(
-        "Return the nth Fibonacci number using recursion."
-    )
+//    TODO(
+//        "Return the nth Fibonacci number using recursion."
+//    )
+    if (n <= 1) return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
 
 // TODO 19: Simple calculator using when expression.
 fun miniCalculator() {
-    TODO(
-        "Create a simple calculator that takes two numbers and an operator (+, -, *, /) from the user and prints the result."
-    )
+//    TODO(
+//        "Create a simple calculator that takes two numbers and an operator (+, -, *, /) from the user and prints the result."
+//    )
     /*
     Example
     println("Enter first number:")
     val a = readln().toDouble()
      */
+    println("Enter first number:")
+    val a = readln().toDouble()
+    println("Enter second number:")
+    val b = readln().toDouble()
+    println("Enter operator (+, -, *, /):")
+    val op = readln()
+
+    val result = when (op) {
+        "+" -> a + b
+        "-" -> a - b
+        "*" -> a * b
+        "/" -> if (b != 0.0) a / b else "Error: division by zero"
+        else -> "Unknown operator"
+    }
+    println("Result: $result")
 }
 
 // TODO 20: Text analyzer.
 fun analyzeText(text: String): Map<String, Any> {
-    TODO(
-        "Analyze the text and return statistics:\n" +
-                "- Character count\n" +
-                "- Word count\n" +
-                "- Longest word\n" +
-                "- Average word length"
+//    TODO(
+//        "Analyze the text and return statistics:\n" +
+//                "- Character count\n" +
+//                "- Word count\n" +
+//                "- Longest word\n" +
+//                "- Average word length"
+//    )
+    val words = text.split(" ")
+    val charCount = text.replace(" ", "").length
+    val wordCount = words.size
+    val longestWord = words.maxByOrNull { it.length } ?: ""
+    val averageWordLength = words.map { it.length }.average()
+
+    return mapOf(
+        "charCount" to charCount,
+        "wordCount" to wordCount,
+        "longestWord" to longestWord,
+        "averageWordLength" to averageWordLength
     )
 }
 
