@@ -31,11 +31,11 @@ fun main() {
     val score = 85
 
     when {
-        score == 100 -> println("Perfect score!")
-        score < 0 || score > 100 -> println("Invalid score")
-        score in 0..49 -> println("You failed!")
-        score in 50..60 -> println("Just passed!")
-        score in 61..99 -> println("Well done!")
+        score == 100               -> println("Perfect score!")
+        score < 0 || score > 100   -> println("Invalid score")
+        score in 0..49       -> println("You failed!")
+        score in 50..60      -> println("Just passed!")
+        score in 61..99      -> println("Well done!")
     }
 
     // ✅ EXERCISE 3 list and Loops:
@@ -58,7 +58,7 @@ fun main() {
     print("Entrez le nom d'un fruit : ")
     val input = readln()
 
-    if (input in fruits) {
+    if (fruits.any { it.equals(input, ignoreCase = true) }) {
         println("Oui, $input est dans la liste !")
     } else {
         println("Non, $input n'est pas dans la liste.")

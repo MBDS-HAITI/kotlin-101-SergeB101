@@ -1,54 +1,69 @@
 package com.android.com.kotlin.one
 
 fun greet(name: String = "Student"): String {
-    TODO("Write a function that greets someone by name.")
+    //TODO("Write a function that greets someone by name.")
+    return "Bonjour, $name !"
 }
 
 fun printInfo(name: String, age: Int = 18, city: String = "Paris") {
-    TODO("Print user info, with some default values. In the format: $name is $age years old and lives in $city.")
+    //TODO("Print user info, with some default values. In the format: $name is $age years old and lives in $city.")
+    println("$name is $age years old and lives in $city.")
 }
 
 fun add(a: Int, b: Int): Int {
-    TODO("Function that adds two numbers and returns the result.")
+    //TODO("Function that adds two numbers and returns the result.")
+    return a + b
 }
 
 fun isEven(number: Int): Boolean {
-    TODO("Check if a number is even.")
+    //TODO("Check if a number is even.")
+    return number % 2 == 0
 }
 
 fun areaOfCircle(radius: Double): Double {
-    TODO(
-        "Compute area of a circle using π * r²."
-    )
+//    TODO(
+//        "Compute area of a circle using π * r²."
+//    )
+    return 3.14*radius*radius
 }
 
 // TODO 5: Return a letter grade based on score.
 fun grade(score: Int): String {
-    TODO(
-        "Return a letter grade based on score. \uD83D\uDD27 Use if or when" +
-                "- Score >= 90: 'A'\n" +
-                "- Score >= 80: 'B'\n" +
-                "- Score >= 70: 'C'\n" +
-                "- Score >= 60: 'D'\n" +
-                "- Below 60: 'F'"
-    )
+//    TODO(
+//        "Return a letter grade based on score. \uD83D\uDD27 Use if or when" +
+//                "- Score >= 90: 'A'\n" +
+//                "- Score >= 80: 'B'\n" +
+//                "- Score >= 70: 'C'\n" +
+//                "- Score >= 60: 'D'\n" +
+//                "- Below 60: 'F'"
+//    )
+    when {
+        score >= 90 -> return "A"
+        score >= 80 -> return "B"
+        score >= 70 -> return "C"
+        score >= 60 -> return "D"
+        else -> return "F"
+    }
 }
 
 fun maxOfThree(a: Int, b: Int, c: Int): Int {
-    TODO(
-        "Return the maximum of three numbers."
-    )
+//    TODO(
+//        "Return the maximum of three numbers."
+//    )
+    return maxOf(a, b, c)
 }
 
 fun toFahrenheit(celsius: Double): Double {
-    TODO("Convert Celsius to Fahrenheit.")
+    //TODO("Convert Celsius to Fahrenheit.")
+    return 32+celsius*9/5
 }
 
 
 fun applyDiscount(price: Double, discount: Double = 0.1): Double {
-    TODO(
-        "Apply a discount (default 10%) to a price."
-    )
+//    TODO(
+//        "Apply a discount (default 10%) to a price."
+//    )
+    return price * (1 - (discount / 100))
 }
 
 
